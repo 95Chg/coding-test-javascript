@@ -31,21 +31,21 @@ console.log(printingStars(input));
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 
-let starArr = [];
-let answer = "";
+const makeStar = (num) => {
+    let starArr = [];
+    let answer = '';
 
-function makeStar (num) {
     if (num === 3) {
         starArr[0] = "***";
         starArr[1] = "* *";
         starArr[2] = "***";
     } else {
-        let starArrTemp = makeStar(num / 3).concat();
+        let starArrTemp = makeStar(num / 3).split('\n').map(String);
 
         for (let i = 0; i < num; i++) {
             let idx = i % (num / 3);
 
-            if (Math.floor(i / (num / 3)) == 1) {
+            if (Math.floor(i / (num / 3)) === 1) {
                 starArr[i] = starArrTemp[idx] + starArrTemp[idx].replaceAll("*", " ") + starArrTemp[idx];
             } else {
                 starArr[i] = starArrTemp[idx] + starArrTemp[idx] + starArrTemp[idx];
@@ -54,13 +54,9 @@ function makeStar (num) {
 
     }
 
-    return starArr;
+    starArr.forEach(str => answer += `${str}\n`);
+
+    return answer.trim();
 };
 
-makeStar(input);
-
-for (let i = 0; i < starArr.length; i++) {
-    answer += `${starArr[i]}\n`;
-}
-
-console.log(answer.trim());
+console.log(makeStar(input));
