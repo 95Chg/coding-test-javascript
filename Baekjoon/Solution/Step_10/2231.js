@@ -3,7 +3,7 @@ const file = process.platform === 'linux' ? '/dev/stdin' : './example.txt';
 const input = Number(fs.readFileSync(file).toString().trim());
 
 const decomposeSum = (number) => {
-    const target = input;
+    const target = number;
 
     for (let i = 1; i <= target; i += 1) {
         let sum = 0;
