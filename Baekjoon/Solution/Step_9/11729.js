@@ -16,7 +16,7 @@ const towerOfHanoi = (num) => {
         }
     }
 
-    movePlate(input, 1, 2, 3);
+    movePlate(num, 1, 2, 3);
     
     console.log(count);
     return answer.trim();
