@@ -1,12 +1,8 @@
 function solution(array, commands) {
-    let answer = [];
-    
+    const answer = [];
     commands.forEach(([i, j, k]) => {
-        const temp = array.slice(i - 1, j).sort((a, b) => a - b)[k - 1]
-        // console.log(temp);
-        answer.push(temp);
-    })
+                answer.push(array.slice(i - 1, j).sort((a, b) => a - b)[k - 1])
+            })
     
-    // console.log(answer);
     return answer;
 }
